@@ -7,7 +7,9 @@
                 {{ post.published_date }}
             </time>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }} </p>
+            {% if post.summary %}
+                <p>{{ post.summary|linebreaksbr }} <a href="{% url 'post_full' pk=post.pk %}" class="read-more">Read more</a></p>
+            {% endif %}
         </article>
     {% endfor %}
 {% endblock %}
