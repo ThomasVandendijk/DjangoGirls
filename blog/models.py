@@ -15,5 +15,14 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
+    @property
+    def wrapped_text(self):
+        MAX_NUMBER_OF_CHARS = 200
+        "Returns the person's full name."
+        if len(self.text) > MAX_NUMBER_OF_CHARS:
+            return self.text[:MAX_NUMBER_OF_CHARS] + "..."
+        else:
+            return self.text
+
     def __str__(self):
         return self.title

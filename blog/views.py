@@ -17,3 +17,9 @@ class PostDetailView(DetailView):
 class PostFullView(DetailView):
     model = Post
     template_name = "blog/post_full.html"
+
+
+class PostListAlternativeView(ListView):
+    queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    context_object_name = 'posts'
+    template_name = "blog/post_list_alternative.html"

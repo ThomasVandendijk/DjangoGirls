@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            {% if post.text|length > post.wrapped_text|length %}
+                <p>{{ post.wrapped_text|linebreaksbr }} <a href="{% url 'post_full' pk=post.pk %}" class="read-more-alternative">Read more</a></p>
+            {% else %}
+                <p> {{ post.wrapped_text|linebreaksbr }} </p>
+            {% endif %}
+        </article>
+    {% endfor %}
+{% endblock %}
