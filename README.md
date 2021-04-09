@@ -14,3 +14,8 @@
 - Incase you’d need an in-depth view of how Class-Based viewswork, a good reference can be found at https://ccbv.co.uk/
 - Once this is done, commit all your work into the previously created git repository and push it to GitHub.
 
+### Extra variation 
+
+- Added an extra variation which is based on real life posts where only part of the text is shown and the read more button redirects to the full article
+- This way the writer doesn't have to create a summary which makes posting stories easier and faster
+
